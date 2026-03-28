@@ -896,8 +896,7 @@ INSERT INTO DELIVERY (RID, VID, WID, ShipmentID, DeliveryDate) VALUES
 (86, 11, 26, 86, '2025-09-06'),
 (87, 12, 27, 87, '2025-10-12'),
 (88, 13, 28, 88, '2025-11-27'),
-(89, 14, 29, 89, '2025-12-08'),
-(90, 15, 30, 90, '2026-01-17');
+(89, 14, 29, 89, '2025-12-08');
 
 INSERT INTO SHIP_ITEM (ShipmentID, ItemSerialNo, ShippedQty, ExArrDate) VALUES
 (1, 1, 2, '2025-01-10'),
