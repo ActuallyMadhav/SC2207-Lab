@@ -805,7 +805,7 @@ INSERT INTO SUPPLIER_PURCHASE_ORDER (OID, SupplierID) VALUES
 (81,21),(82,22),(83,23),(84,24),(85,25),(86,26),(87,27),(88,28),(89,29),(90,30);
 
 INSERT INTO DELIVERY (RID, VID, WID, ShipmentID, DeliveryDate) VALUES
--- RID 1-30 (2024 routes, WID 1-30)
+-- RID 1–30 (SHIPMENT 1–30)
 (1, 1, 1, 1, '2024-01-10'),
 (2, 2, 2, 2, '2024-01-25'),
 (3, 3, 3, 3, '2024-02-08'),
@@ -836,7 +836,8 @@ INSERT INTO DELIVERY (RID, VID, WID, ShipmentID, DeliveryDate) VALUES
 (28, 13, 28, 28, '2024-08-30'),
 (29, 14, 29, 29, '2024-03-25'),
 (30, 15, 30, 30, '2024-06-28'),
--- RID 31-60 (2025 routes, WID cycles 1-30 again)
+
+-- RID 31–60 (SHIPMENT 31–60)
 (31, 1, 1, 31, '2025-01-10'),
 (32, 2, 2, 32, '2025-01-18'),
 (33, 3, 3, 33, '2025-01-25'),
@@ -867,7 +868,8 @@ INSERT INTO DELIVERY (RID, VID, WID, ShipmentID, DeliveryDate) VALUES
 (58, 13, 28, 58, '2025-08-07'),
 (59, 14, 29, 59, '2025-08-14'),
 (60, 15, 30, 60, '2025-08-21'),
--- RID 61-90 (2025 routes continued, WID cycles 1-30 again)
+
+-- RID 61–90 (SHIPMENT 61–90)
 (61, 1, 1, 61, '2025-09-04'),
 (62, 2, 2, 62, '2025-09-11'),
 (63, 3, 3, 63, '2025-09-18'),
