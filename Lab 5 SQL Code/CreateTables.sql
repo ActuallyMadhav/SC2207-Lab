@@ -110,8 +110,8 @@ CREATE TABLE SHIPMENT(
     OriginalLocation NVARCHAR(100) NOT NULL,
     TrackingNumber NVARCHAR(30) NOT NULL UNIQUE,
     ShippedDate DATE NOT NULL,
-    ExShippedDate DATE NOT NULL,
-    AcShippedDate DATE NULL,
+    ExArrDate DATE NOT NULL,
+    AcArrDate DATE NULL,
     OID INT NOT NULL REFERENCES PURCHASE_ORDER(OID)
 );
 
