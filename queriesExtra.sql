@@ -14,3 +14,14 @@ where l.LicenseExpiration between getdate() and dateadd(day, 60, getdate())
 order by l.LicenseExpiration asc;
 go
 
+-- number and total value orders still pending or processing
+select 
+    Status,
+    count(OID) as numOrders,
+    sum(value) as tiedUpRev
+from PURCHASE_ORDER
+where Status in ('Pending', 'Processing')
+group by Status
+order by tiedUpRev desc;
+go
+
