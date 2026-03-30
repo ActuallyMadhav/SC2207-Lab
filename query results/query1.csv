@@ -1,0 +1,86 @@
+WID,WarehouseAddress,CID,CompanyName,TotalBusiness,ClientRank
+1,"10 Tuas South Ave 1, Singapore",4,Apex Marketing,999.99,1
+1,"10 Tuas South Ave 1, Singapore",30,LegalBridge LLP,880.00,2
+1,"10 Tuas South Ave 1, Singapore",8,HealthPlus Clinic,680.00,3
+2,"5 Jurong Port Rd, Singapore",30,LegalBridge LLP,880.00,1
+2,"5 Jurong Port Rd, Singapore",8,HealthPlus Clinic,680.00,2
+2,"5 Jurong Port Rd, Singapore",22,TravelEase SG,315.00,3
+3,"30 Penjuru Rd, Singapore",5,BrightFuture Edu,180.40,1
+3,"30 Penjuru Rd, Singapore",1,TechNova Pte Ltd,120.50,2
+4,"15 Pioneer Sector 3, Singapore",5,BrightFuture Edu,340.10,1
+4,"15 Pioneer Sector 3, Singapore",1,TechNova Pte Ltd,250.00,2
+5,"8 Benoi Rd, Singapore",4,Apex Marketing,999.99,1
+5,"8 Benoi Rd, Singapore",18,Global Imports,999.50,2
+5,"8 Benoi Rd, Singapore",1,TechNova Pte Ltd,250.00,3
+6,"22 Tuas Ave 8, Singapore",18,Global Imports,999.50,1
+6,"22 Tuas Ave 8, Singapore",2,GreenLeaf Solutions,89.99,2
+6,"22 Tuas Ave 8, Singapore",4,Apex Marketing,60.00,3
+7,"3 Gul Circle, Singapore",27,DataSense Analytics,225.00,1
+7,"3 Gul Circle, Singapore",5,BrightFuture Edu,180.40,2
+7,"3 Gul Circle, Singapore",2,GreenLeaf Solutions,89.99,3
+8,"18 Jalan Buroh, Singapore",5,BrightFuture Edu,340.10,1
+8,"18 Jalan Buroh, Singapore",27,DataSense Analytics,225.00,2
+8,"18 Jalan Buroh, Singapore",2,GreenLeaf Solutions,89.99,3
+9,"7 Tuas View Sq, Singapore",6,Oceanic Traders,1200.00,1
+9,"7 Tuas View Sq, Singapore",2,GreenLeaf Solutions,310.75,2
+9,"7 Tuas View Sq, Singapore",30,LegalBridge LLP,195.00,3
+10,"12 Pioneer Crescent, Singapore",6,Oceanic Traders,1200.00,1
+10,"12 Pioneer Crescent, Singapore",2,GreenLeaf Solutions,310.75,2
+10,"12 Pioneer Crescent, Singapore",30,LegalBridge LLP,195.00,3
+11,"25 Tuas Ave 2, Singapore",1,TechNova Pte Ltd,440.00,1
+11,"25 Tuas Ave 2, Singapore",3,Skyline Logistics,150.00,2
+11,"25 Tuas Ave 2, Singapore",6,Oceanic Traders,95.50,3
+12,"9 Jalan Papan, Singapore",1,TechNova Pte Ltd,440.00,1
+12,"9 Jalan Papan, Singapore",3,Skyline Logistics,150.00,2
+12,"9 Jalan Papan, Singapore",6,Oceanic Traders,95.50,3
+13,"4 Buroh Lane, Singapore",2,GreenLeaf Solutions,620.00,1
+13,"4 Buroh Lane, Singapore",3,Skyline Logistics,499.90,2
+13,"4 Buroh Lane, Singapore",7,UrbanBuild Co,410.00,3
+14,"33 Pioneer Rd North, Singapore",2,GreenLeaf Solutions,620.00,1
+14,"33 Pioneer Rd North, Singapore",3,Skyline Logistics,499.90,2
+14,"33 Pioneer Rd North, Singapore",7,UrbanBuild Co,410.00,3
+15,"11 Tuas West Rd, Singapore",3,Skyline Logistics,854.90,1
+16,"6 Benoi Sector, Singapore",5,BrightFuture Edu,510.00,1
+16,"6 Benoi Sector, Singapore",3,Skyline Logistics,430.25,2
+17,"2 Gul Ave, Singapore",6,Oceanic Traders,390.00,1
+17,"2 Gul Ave, Singapore",4,Apex Marketing,270.00,2
+17,"2 Gul Ave, Singapore",3,Skyline Logistics,75.25,3
+18,"20 Penjuru Close, Singapore",10,FreshFarm Foods,825.00,1
+18,"20 Penjuru Close, Singapore",7,UrbanBuild Co,475.00,2
+18,"20 Penjuru Close, Singapore",4,Apex Marketing,270.00,3
+19,"14 Tuas View Extension, Singapore",13,SmartHome Tech,740.00,1
+19,"14 Tuas View Extension, Singapore",8,HealthPlus Clinic,680.00,2
+19,"14 Tuas View Extension, Singapore",12,Elite Fitness SG,590.00,3
+20,"17 Pioneer Sector 2, Singapore",5,BrightFuture Edu,510.00,1
+20,"17 Pioneer Sector 2, Singapore",9,NextGen IT,295.00,2
+20,"17 Pioneer Sector 2, Singapore",3,Skyline Logistics,220.00,3
+21,"1000 S Alameda St, Los Angeles, USA",6,Oceanic Traders,999.99,1
+21,"1000 S Alameda St, Los Angeles, USA",21,EduSmart Academy,725.20,2
+21,"1000 S Alameda St, Los Angeles, USA",2,GreenLeaf Solutions,620.00,3
+22,"2500 E Vernon Ave, Los Angeles, USA",21,EduSmart Academy,1450.40,1
+22,"2500 E Vernon Ave, Los Angeles, USA",30,LegalBridge LLP,880.00,2
+22,"2500 E Vernon Ave, Los Angeles, USA",13,SmartHome Tech,720.30,3
+23,"3300 Bandini Blvd, Los Angeles, USA",10,FreshFarm Foods,1166.20,1
+23,"3300 Bandini Blvd, Los Angeles, USA",18,Global Imports,999.50,2
+23,"3300 Bandini Blvd, Los Angeles, USA",17,FinEdge Consulting,870.00,3
+24,"4800 S Santa Fe Ave, Los Angeles, USA",18,Global Imports,1999.00,1
+24,"4800 S Santa Fe Ave, Los Angeles, USA",11,SecureNet Systems,663.80,2
+24,"4800 S Santa Fe Ave, Los Angeles, USA",24,CloudCore Tech,660.00,3
+25,"600 Macy St, Los Angeles, USA",8,HealthPlus Clinic,1200.00,1
+25,"600 Macy St, Los Angeles, USA",26,BuildRight Eng,810.00,2
+25,"600 Macy St, Los Angeles, USA",9,NextGen IT,720.30,3
+26,"88 Moo 4 Laem Chabang Industrial, Thailand",11,SecureNet Systems,870.00,1
+26,"88 Moo 4 Laem Chabang Industrial, Thailand",8,HealthPlus Clinic,680.00,2
+26,"88 Moo 4 Laem Chabang Industrial, Thailand",4,Apex Marketing,345.25,3
+27,"12 Rama 2 Rd, Bangkok, Thailand",12,Elite Fitness SG,999.50,1
+27,"12 Rama 2 Rd, Bangkok, Thailand",5,BrightFuture Edu,730.00,2
+27,"12 Rama 2 Rd, Bangkok, Thailand",8,HealthPlus Clinic,680.00,3
+28,"99 Amata City Industrial Estate, Thailand",6,Oceanic Traders,999.99,1
+28,"99 Amata City Industrial Estate, Thailand",5,BrightFuture Edu,510.00,2
+28,"99 Amata City Industrial Estate, Thailand",30,LegalBridge LLP,195.00,3
+29,"45 Bangplee Industrial Estate, Thailand",13,SmartHome Tech,610.00,1
+29,"45 Bangplee Industrial Estate, Thailand",1,TechNova Pte Ltd,440.00,2
+29,"45 Bangplee Industrial Estate, Thailand",2,GreenLeaf Solutions,310.75,3
+30,"7 WHA Eastern Seaboard, Thailand",13,SmartHome Tech,725.20,1
+30,"7 WHA Eastern Seaboard, Thailand",4,Apex Marketing,499.90,2
+30,"7 WHA Eastern Seaboard, Thailand",1,TechNova Pte Ltd,440.00,3
