@@ -14,6 +14,50 @@ where l.LicenseExpiration between getdate() and dateadd(day, 60, getdate())
 order by l.LicenseExpiration asc;
 go
 
+-- number of orders still pending
+select
+    OID as OrderID,
+    OrderDate,
+    Status,
+    Value as OrderTotal
+from PURCHASE_ORDER
+where Status = 'Pending'
+order by OrderDate asc;
+go
+
+-- number of orders still processing
+select 
+    OID as OrderID,
+    OrderDate,
+    Status,
+    Value as OrderVal
+from PURCHASE_ORDER
+where status = 'Processing'
+order by OrderDate asc;
+go
+
+-- orders that are shipped
+select 
+    OID as OrderID,
+    OrderDate,
+    Status,
+    Value as OrderVal
+from PURCHASE_ORDER
+where status = 'Shipped'
+order by OrderDate asc;
+go
+
+-- orders that are delivered
+select 
+    OID as OrderID,
+    OrderDate,
+    Status,
+    Value as OrderVal
+from PURCHASE_ORDER
+where status = 'Delivered'
+order by OrderDate asc;
+go
+
 -- number and total value orders still pending or processing
 select 
     Status,
