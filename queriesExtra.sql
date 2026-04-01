@@ -69,3 +69,24 @@ group by Status
 order by tiedUpRev desc;
 go
 
+-- top 2 most expensive products per category
+with Ranked as(
+    select 
+        Category,
+        Name as ProductName,
+        Brand,
+        Price,
+        dense_rank() over (partition by category order by price desc) as priceRank
+    from PRODUCT
+)
+select 
+    Category,
+    ProductName,
+    Brand,
+    Price,    
+    priceRank
+from Ranked
+where priceRank <= 2
+order by Category, priceRank;
+go 
+
