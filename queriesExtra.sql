@@ -103,3 +103,29 @@ where c.ServiceTier in ('Gold', 'Silver') -- change str acc to what u want to co
 group by c.ServiceTier
 order by avgOrderVal desc;
 go
+
+-- which clients only order 'x' category
+select c.CID, c.CompanyName
+from CLIENT c
+where 
+    -- must have ordered at least one 'x' item
+    exists(
+        select 1
+        from CLIENT_PURCHASE_ORDER cpo
+        join ORDER_ITEM oi on cpo.OID = oi.OID
+        join ITEM i on oi.ItemSerialNo = i.ItemSerialNo
+        join product p on i.PID = p.PID
+        where cpo.CID = c.CID and p.Category = 'Electronics' -- change according to which cat u want
+    )
+    
+    -- must not have ordered a non 'x' item
+    and not exists(
+        select 1
+        from CLIENT_PURCHASE_ORDER cpo
+        join ORDER_ITEM oi on cpo.OID = oi.OID
+        join item i on oi.ItemSerialNo = i.ItemSerialNo
+        join product p on i.PID = p.PID
+        where cpo.CID = c.CID and p.Category != 'Electronics' -- change according to which cat u want
+    );
+go
+
