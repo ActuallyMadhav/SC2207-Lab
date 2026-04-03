@@ -8,29 +8,38 @@ GO
 -- Value of orders that were:
 --     - linked to the client via CLIENT_PURCHASE_ORDER
 --     - shipped to that warehouse via SHIPMENT → SHIPMENT_TO_WAREHOUSE
---   DENSE_RANK is used so tied clients both appear if they share rank 1/2/3.
 -- ============================================================
 
 WITH ClientWarehouseBusiness AS (
     SELECT stw.WID, cpo.CID, SUM(po.Value) AS TotalBusiness
     FROM PURCHASE_ORDER po
     JOIN CLIENT_PURCHASE_ORDER cpo ON cpo.OID = po.OID
-    JOIN SHIPMENT s  ON s.OID = po.OID
+    JOIN SHIPMENT s ON s.OID = po.OID
     JOIN SHIPMENT_TO_WAREHOUSE stw ON stw.ShipmentID = s.ShipmentID
     GROUP BY stw.WID, cpo.CID
 ), 
 RankedClients AS (
-    SELECT cwb.WID, w.Address AS WarehouseAddress, cwb.CID, c.CompanyName, cwb.TotalBusiness, 
-    DENSE_RANK() OVER (PARTITION BY cwb.WID ORDER BY cwb.TotalBusiness DESC) AS Rank
+    SELECT 
+        cwb.WID, 
+        w.Address AS WarehouseAddress, 
+        cwb.CID, 
+        c.CompanyName, 
+        cwb.TotalBusiness, 
+        ROW_NUMBER() OVER (PARTITION BY cwb.WID ORDER BY cwb.TotalBusiness DESC) AS Rank
     FROM ClientWarehouseBusiness cwb
     JOIN WAREHOUSE w ON w.WID = cwb.WID
     JOIN CLIENT c ON c.CID = cwb.CID
 )
-SELECT
-    WID, WarehouseAddress, CID, CompanyName, TotalBusiness, Rank AS ClientRank
+SELECT 
+    WID,
+    WarehouseAddress,
+    MAX(CASE WHEN Rank = 1 THEN CompanyName END) AS FirstTopClient,
+    MAX(CASE WHEN Rank = 2 THEN CompanyName END) AS SecondTopClient,
+    MAX(CASE WHEN Rank = 3 THEN CompanyName END) AS ThirdTopClient
 FROM RankedClients
 WHERE Rank <= 3
-ORDER BY WID, Rank;
+GROUP BY WID, WarehouseAddress
+ORDER BY WID;
 GO
 
 -- ============================================================
