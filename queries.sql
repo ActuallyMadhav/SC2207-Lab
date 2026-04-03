@@ -73,7 +73,7 @@ GO
 -- Q3. Top three months (by name) in a year for the last two
 --     years that have the most purchase orders created.
 -- ============================================================
-
+-- this gives strictly 3 months of each year, regardless of montsh with same # of POs
 WITH OrdersByMonth AS (
     SELECT
         YEAR(OrderDate) AS OrderYear,
@@ -86,11 +86,25 @@ WITH OrdersByMonth AS (
         YEAR(OrderDate),
         MONTH(OrderDate),
         DATENAME(MONTH, OrderDate)
+),
+RankedOrders AS (
+    SELECT 
+        OrderYear, 
+        MonthName, 
+        OrderCount,
+        ROW_NUMBER() OVER (
+            PARTITION BY OrderYear 
+            ORDER BY OrderCount DESC, OrderMonth ASC
+        ) AS RowNum
+    FROM OrdersByMonth
 )
-SELECT TOP 3
-    OrderYear, MonthName, OrderCount
-FROM OrdersByMonth
-ORDER BY OrderCount DESC, OrderYear DESC, OrderMonth;
+SELECT 
+    OrderYear, 
+    MonthName, 
+    OrderCount
+FROM RankedOrders
+WHERE RowNum <= 3
+ORDER BY OrderYear DESC, OrderCount DESC;
 GO
 
 
