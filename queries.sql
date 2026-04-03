@@ -114,19 +114,27 @@ GO
 -- Q4. Average length of time (in months) from order creation until products are delivered to warehouses.
 -- ============================================================
 
+WITH UniqueDeliveryTimes AS (
+    SELECT DISTINCT
+        p.PID,
+        p.Name AS ProductName,
+        po.OID,
+        po.OrderDate,
+        sh.AcArrDate
+    FROM PRODUCT p
+    JOIN ITEM i ON i.PID = p.PID
+    JOIN ORDER_ITEM oi ON oi.ItemSerialNo = i.ItemSerialNo
+    JOIN PURCHASE_ORDER po ON po.OID = oi.OID
+    JOIN SHIPMENT sh ON sh.OID = po.OID
+    WHERE sh.AcArrDate IS NOT NULL
+)
 SELECT
-    p.PID, p.Name AS ProductName,
-    ROUND(AVG(CAST(DATEDIFF(DAY, po.OrderDate, sh.AcArrDate) AS FLOAT) / 30.44), 2) AS AvgMonthsToDeliver
-FROM PRODUCT p
-JOIN ITEM i ON i.PID = p.PID
-JOIN ORDER_ITEM oi ON oi.ItemSerialNo = i.ItemSerialNo
-JOIN PURCHASE_ORDER po ON po.OID = oi.OID
-JOIN SHIPMENT sh ON sh.OID = po.OID
-JOIN SHIPMENT_TO_WAREHOUSE stw ON stw.ShipmentID = sh.ShipmentID
-WHERE sh.AcArrDate IS NOT NULL
-GROUP BY p.PID, p.Name
-ORDER BY p.PID;
-GO
+    PID,
+    ProductName,
+    ROUND(AVG(CAST(DATEDIFF(DAY, OrderDate, AcArrDate) AS FLOAT) / 30.4), 2) AS AvgMonthsToDeliver
+FROM UniqueDeliveryTimes
+GROUP BY PID, ProductName
+ORDER BY PID;
 
 -- ============================================================
 -- Q5. Suppliers that ONLY supply products to warehouses located in Singapore.
