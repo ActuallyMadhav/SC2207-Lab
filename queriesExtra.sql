@@ -21,7 +21,7 @@ select
     Status,
     Value as OrderTotal
 from PURCHASE_ORDER
-where Status = 'Pending'
+where Status = 'Pending'  -- change status between 'Pending', 'Processing', 'Shipped', 'Delivered'
 order by OrderDate asc;
 go
 
