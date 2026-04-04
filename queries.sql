@@ -229,7 +229,7 @@ SELECT
 FROM SHIPMENT sh
 WHERE sh.AcArrDate IS NOT NULL
   AND sh.ExArrDate IS NOT NULL
-  AND DATEDIFF(MONTH, sh.ExArrDate, sh.AcArrDate) > 6
+  AND DATEDIFF(DAY, sh.ExArrDate, sh.AcArrDate) > (6 * 30.4)
 GROUP BY sh.OriginalLocation
 ORDER BY DelayCount DESC;
 GO
