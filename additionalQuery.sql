@@ -17,26 +17,26 @@ WITH MonthlySales AS (
     FROM vw_OrderClient oc
     JOIN vw_OrderProduct op ON oc.OID = op.OID
     WHERE oc.OrderDate >= DATEADD(MONTH, -6, (SELECT MAX(OrderDate) FROM PURCHASE_ORDER))
+      AND oc.OrderStatus != 'Cancelled'
     GROUP BY oc.CID, oc.CompanyName, op.PID, op.ProductName
 ),
 CurrentStock AS (
     SELECT
-        CID,
         PID,
         SUM(sQty) AS AvailableForSale
     FROM INVENTORY
-    GROUP BY CID, PID
+    GROUP BY PID
 )
 SELECT
     ms.CID,
     ms.CompanyName,
     ms.PID,
     ms.ProductName,
-    cs.AvailableForSale,
+    ISNULL(cs.AvailableForSale, 0) AS AvailableForSale,
     ROUND(ms.AvgMonthlySales, 2) AS AvgMonthlySales,
     ROUND(ms.AvgMonthlySales * 0.10, 2) AS Threshold
 FROM MonthlySales ms
-JOIN CurrentStock cs ON cs.CID = ms.CID AND cs.PID = ms.PID
-WHERE cs.AvailableForSale < ms.AvgMonthlySales * 0.10
+LEFT JOIN CurrentStock cs ON cs.PID = ms.PID
+WHERE ISNULL(cs.AvailableForSale, 0) < ms.AvgMonthlySales * 0.10
 ORDER BY ms.CID, ms.PID;
 GO
