@@ -16,7 +16,7 @@ WITH MonthlySales AS (
         SUM(op.OrderedQty) * 1.0 / 6 AS AvgMonthlySales
     FROM vw_OrderClient oc
     JOIN vw_OrderProduct op ON oc.OID = op.OID
-    WHERE oc.OrderDate >= DATEADD(MONTH, -6, GETDATE())
+    WHERE oc.OrderDate >= DATEADD(MONTH, -6, (SELECT MAX(OrderDate) FROM PURCHASE_ORDER))
     GROUP BY oc.CID, oc.CompanyName, op.PID, op.ProductName
 ),
 CurrentStock AS (
